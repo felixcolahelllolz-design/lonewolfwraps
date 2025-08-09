@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop Wraps & Film — Lone Wolf Wraps</title>
+  <meta name="description" content="Order premium wrap films and services. We handle the vendor and fulfillment—so you get installer pricing and fast delivery." />
+  <link rel="canonical" href="https://lonewolfwraps.vercel.app/order.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: { colors: { charcoal:'#111216', gunmetal:'#1a1b1f', accent:'#7c3aed' } }
+      }
+    }
+  </script>
+  <style>
+    :focus-visible { outline: 2px solid #7c3aed; outline-offset: 2px; }
+    .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+    .product { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:10px; padding:14px; }
+    .product img { width:100%; height:180px; object-fit:cover; border-radius:8px; }
+    .product .btn { display:inline-block; margin-top:8px; background:#7c3aed; color:#fff; padding:10px 14px; border-radius:6px; text-decoration:none; font-weight:600; }
+    .product .btn:hover { opacity:.9 }
+  </style>
+  <meta property="og:title" content="Shop Wraps & Film — Lone Wolf Wraps" />
+  <meta property="og:description" content="Vendor-fulfilled wraps with installer pricing. Pay securely via Stripe." />
+  <meta property="og:url" content="https://lonewolfwraps.vercel.app/order.html" />
+  <meta property="og:image" content="https://lonewolfwraps.vercel.app/images/logo.png" />
+</head>
+<body class="bg-charcoal text-white">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-gunmetal/80 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/#hero" class="flex items-center gap-3">
+        <img id="logo" src="/images/logo.png" alt="Lone Wolf Wraps logo" class="h-9 w-auto rounded-md border border-white/10 bg-white/5 p-1" />
+        <span class="font-bold tracking-wide">Lone Wolf Wraps</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Primary">
+        <a href="/#services" class="hover:text-white/80">Services</a>
+        <a href="/#gallery" class="hover:text-white/80">Gallery</a>
+        <a href="/order.html" class="text-accent font-semibold">Shop</a>
+        <a href="/#beat" class="hover:text-white/80">Beat a Quote</a>
+        <a href="/#process" class="hover:text-white/80">Process</a>
+        <a href="/#book" class="hover:text-white/80">Book</a>
+        <a href="/#contact" class="hover:text-white/80">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="tel:+18038734617" class="text-sm underline hidden sm:inline">(803) 873‑4617</a>
+        <a href="/#book" class="px-3 py-1.5 rounded-lg bg-accent hover:opacity-90 transition">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="border-b border-white/10 bg-gunmetal/60">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Order Wraps & Film</h1>
+      <p class="mt-3 text-white/80 max-w-2xl">We source the film from our distributor, you get our installer pricing. Pay now, and our partner vendor ships it straight to you or to us for install.</p>
+      <ul class="mt-4 text-sm text-white/70 list-disc pl-5">
+        <li>Secure checkout via Stripe Payment Links</li>
+        <li>Fulfilled by partner vendor (5–10 business days typical)</li>
+        <li>We email you tracking and book install if requested</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Product grid -->
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-semibold mb-4">Popular items</h2>
+    <div class="products">
+      <article class="product" data-sku="LW-INOZETEK-MP-5x25" data-vsku="VENDOR-INO-MP-525">
+        <img src="https://placehold.co/800x600?text=Inozetek+Midnight+Purple" alt="Inozetek Midnight Purple film — 5ft x 25ft" loading="lazy">
+        <h3 class="mt-3 font-semibold">Inozetek Midnight Purple — 5ft × 25ft</h3>
+        <p class="text-white/75 text-sm">Premium gloss purple. Great for accents or partial wraps.</p>
+        <p class="font-bold mt-1">$399</p>
+        <a class="btn" href="https://buy.stripe.com/test_INOZETEK_MP_5x25" rel="nofollow">Buy now</a>
+      </article>
+
+      <article class="product" data-sku="LW-3M-2080-SatinBlack" data-vsku="VENDOR-3M-2080-S12">
+        <img src="https://placehold.co/800x600?text=3M+2080+Satin+Black" alt="3M 2080 Series Satin Black — 5ft x 25ft" loading="lazy">
+        <h3 class="mt-3 font-semibold">3M 2080 Satin Black — 5ft × 25ft</h3>
+        <p class="text-white/75 text-sm">Installer favorite for clean satin black finishes.</p>
+        <p class="font-bold mt-1">$349</p>
+        <a class="btn" href="https://buy.stripe.com/test_3M_2080_SatinBlack" rel="nofollow">Buy now</a>
+      </article>
+
+      <article class="product" data-sku="LW-AVERY-GlossRed" data-vsku="VENDOR-AVERY-RED-525">
+        <img src="https://placehold.co/800x600?text=Avery+Gloss+Red" alt="Avery Dennison Gloss Red — 5ft x 25ft" loading="lazy">
+        <h3 class="mt-3 font-semibold">Avery Gloss Red — 5ft × 25ft</h3>
+        <p class="text-white/75 text-sm">Vibrant gloss red with smooth conformability.</p>
+        <p class="font-bold mt-1">$329</p>
+        <a class="btn" href="https://buy.stripe.com/test_AVERY_GlossRed" rel="nofollow">Buy now</a>
+      </article>
+
+      <article class="product" data-sku="LW-PPF-FrontKit" data-vsku="VENDOR-PPF-FRONT-KIT">
+        <img src="https://placehold.co/800x600?text=PPF+Front+Kit" alt="Paint Protection Film front kit" loading="lazy">
+        <h3 class="mt-3 font-semibold">PPF Front Kit</h3>
+        <p class="text-white/75 text-sm">Bumper, partial hood & fenders — brand varies by availability.</p>
+        <p class="font-bold mt-1">$499</p>
+        <a class="btn" href="https://buy.stripe.com/test_PPF_Front_Kit" rel="nofollow">Buy now</a>
+      </article>
+    </div>
+
+    <p class="text-white/60 text-sm mt-4">Prices shown include our handling & sourcing margin. Taxes and shipping calculated at checkout.</p>
+
+    <section class="mt-12 border border-white/10 rounded-xl p-6 bg-gunmetal/50">
+      <h3 class="text-xl font-semibold">How fulfillment works</h3>
+      <ol class="list-decimal pl-5 mt-3 text-white/80 space-y-2">
+        <li>Pay via Stripe. You’ll get an email receipt.</li>
+        <li>Our webhook places a purchase order with our vendor using your shipping info.</li>
+        <li>Vendor ships to you (or to us if you want install). We email tracking.</li>
+      </ol>
+      <p class="text-white/60 text-sm mt-3">Questions before you order? <a class="underline" href="mailto:mark.helgeson@yahoo.com">Email us</a> or <a class="underline" href="tel:+18038734617">call</a>.</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-white/60 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p>© <span id="year"></span> Lone Wolf Wraps</p>
+      <div class="flex items-center gap-4">
+        <a href="/#book" class="underline">Book Install</a>
+        <a href="mailto:mark.helgeson@yahoo.com" class="underline">Email</a>
+        <a href="tel:+18038734617" class="underline">Call</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Image fallback
+    const logo = document.getElementById('logo');
+    if (logo) {
+      logo.dataset.fallback = 'https://placehold.co/180x60?text=LW';
+      logo.addEventListener('error', () => { logo.src = logo.dataset.fallback; }, { once: true });
+    }
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', () => {
+        const alt = encodeURIComponent(img.alt || 'Image');
+        img.src = `https://placehold.co/800x600?text=${alt}`;
+      }, { once:true });
+    });
+  </script>
+
+  <!-- Minimal product JSON-LD for two items -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "Product",
+        "name": "Inozetek Midnight Purple — 5ft × 25ft",
+        "image": "https://lonewolfwraps.vercel.app/images/logo.png",
+        "description": "Premium gloss purple wrap film",
+        "sku": "LW-INOZETEK-MP-5x25",
+        "brand": {"@type":"Brand","name":"Inozetek"},
+        "offers": {"@type":"Offer","priceCurrency":"USD","price":"399","url":"https://buy.stripe.com/test_INOZETEK_MP_5x25","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type": "Product",
+        "name": "3M 2080 Satin Black — 5ft × 25ft",
+        "image": "https://lonewolfwraps.vercel.app/images/logo.png",
+        "description": "Satin black wrap film roll",
+        "sku": "LW-3M-2080-SatinBlack",
+        "brand": {"@type":"Brand","name":"3M"},
+        "offers": {"@type":"Offer","priceCurrency":"USD","price":"349","url":"https://buy.stripe.com/test_3M_2080_SatinBlack","availability":"https://schema.org/InStock"}
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
