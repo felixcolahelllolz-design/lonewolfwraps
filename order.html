@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop Wraps & Film — Lone Wolf Wraps</title>
+  <meta name="description" content="Order premium wrap films and services. We handle the vendor and fulfillment—so you get installer pricing and fast delivery." />
+  <link rel="canonical" href="https://lonewolfwraps.vercel.app/order.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta property="og:image" content="https://lonewolfwraps.vercel.app/logo.png" />
+</head>
+<body class="bg-[#111216] text-white">
+  <header class="sticky top-0 z-40 backdrop-blur bg-[#1a1b1f]/80 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/#hero" class="flex items-center gap-3">
+        <img id="logo" src="/logo.png" alt="Lone Wolf Wraps logo" class="h-9 w-auto rounded-md border border-white/10 bg-white/5 p-1" />
+        <span class="font-bold tracking-wide">Lone Wolf Wraps</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Primary">
+        <a href="/#services" class="hover:text-white/80">Services</a>
+        <a href="/#gallery" class="hover:text-white/80">Gallery</a>
+        <a href="/order.html" class="text-[#7c3aed] font-semibold">Shop</a>
+        <a href="/#beat" class="hover:text-white/80">Beat a Quote</a>
+        <a href="/#process" class="hover:text-white/80">Process</a>
+        <a href="/#book" class="hover:text-white/80">Book</a>
+        <a href="/#contact" class="hover:text-white/80">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="tel:+18038734617" class="text-sm underline hidden sm:inline">(803) 873-4617</a>
+        <a href="/#book" class="px-3 py-1.5 rounded-lg bg-[#7c3aed] hover:opacity-90 transition">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Order Wraps & Film</h1>
+    <p class="mt-3 text-white/80 max-w-2xl">We source the film from our distributor, you get our installer pricing. Pay now, and our partner vendor ships it straight to you or to us for install.</p>
+
+    <section class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <article class="bg-[#1a1b1f] border border-white/10 rounded-xl p-4">
+        <img src="https://placehold.co/800x600?text=Inozetek+Midnight+Purple" alt="Inozetek Midnight Purple roll" loading="lazy" class="rounded-md">
+        <h3 class="mt-3 font-semibold">Inozetek Midnight Purple — 5ft × 25ft</h3>
+        <p class="text-white/75 text-sm">Premium gloss purple. For accents or partial wraps.</p>
+        <p class="font-bold mt-1">$399</p>
+        <a class="inline-block mt-2 bg-[#7c3aed] px-3 py-2 rounded-md" href="https://buy.stripe.com/test_INOZETEK_MP_5x25" rel="nofollow">Buy now</a>
+      </article>
+      <article class="bg-[#1a1b1f] border border-white/10 rounded-xl p-4">
+        <img src="https://placehold.co/800x600?text=3M+2080+Satin+Black" alt="3M 2080 Satin Black roll" loading="lazy" class="rounded-md">
+        <h3 class="mt-3 font-semibold">3M 2080 Satin Black — 5ft × 25ft</h3>
+        <p class="text-white/75 text-sm">Installer favorite, clean satin finish.</p>
+        <p class="font-bold mt-1">$349</p>
+        <a class="inline-block mt-2 bg-[#7c3aed] px-3 py-2 rounded-md" href="https://buy.stripe.com/test_3M_2080_SatinBlack" rel="nofollow">Buy now</a>
+      </article>
+      <article class="bg-[#1a1b1f] border border-white/10 rounded-xl p-4">
+        <img src="https://placehold.co/800x600?text=Avery+Gloss+Red" alt="Avery Gloss Red roll" loading="lazy" class="rounded-md">
+        <h3 class="mt-3 font-semibold">Avery Gloss Red — 5ft × 25ft</h3>
+        <p class="text-white/75 text-sm">Vibrant gloss red with smooth conformability.</p>
+        <p class="font-bold mt-1">$329</p>
+        <a class="inline-block mt-2 bg-[#7c3aed] px-3 py-2 rounded-md" href="https://buy.stripe.com/test_AVERY_GlossRed" rel="nofollow">Buy now</a>
+      </article>
+    </section>
+
+    <section class="mt-12 border border-white/10 rounded-xl p-6 bg-[#1a1b1f]/60">
+      <h3 class="text-xl font-semibold">How fulfillment works</h3>
+      <ol class="list-decimal pl-5 mt-3 text-white/80 space-y-2">
+        <li>Pay via Stripe. You’ll get an email receipt.</li>
+        <li>We place a purchase order with our vendor using your shipping info.</li>
+        <li>Vendor ships to you (or to us for install). We email tracking.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-white/60 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p>© <span id="year"></span> Lone Wolf Wraps</p>
+      <div class="flex items-center gap-4">
+        <a href="/#book" class="underline">Book Install</a>
+        <a href="mailto:mark.helgeson@yahoo.com" class="underline">Email</a>
+        <a href="tel:+18038734617" class="underline">Call</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Image fallbacks
+    const logo = document.getElementById('logo');
+    if (logo) { logo.dataset.fallback = 'https://placehold.co/180x60?text=LW'; logo.addEventListener('error', () => { logo.src = logo.dataset.fallback; }, { once:true }); }
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', () => {
+        const alt = encodeURIComponent(img.alt || 'Image');
+        img.src = `https://placehold.co/800x600?text=${alt}`;
+      }, { once:true });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lone Wolf Wraps — Premium Vehicle Wraps</title>
+  <meta name="description" content="Precision vinyl & PPF installs. Full and partial wraps, chrome delete, and custom graphics. Book your wrap in minutes." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#111216',
+            gunmetal: '#1a1b1f',
+            silver: '#c0c0c0',
+            accent: '#7c3aed',
+          },
+          boxShadow: {
+            soft: '0 8px 30px rgba(0,0,0,0.25)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    :focus-visible { outline: 2px solid #7c3aed; outline-offset: 2px; }
+    .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0); background-size: 24px 24px; }
+    /* Gallery (lightbox) */
+    #gallery h2 { color:#f0a500; margin-bottom:1rem; }
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .gallery-grid img { width:100%; height:220px; object-fit:cover; border-radius:8px; transition:transform .2s; }
+    .gallery-grid a:hover img { transform:scale(1.02); }
+    .lb { position:fixed; inset:0; background:rgba(0,0,0,.85); display:flex; align-items:center; justify-content:center; z-index:1000; }
+    .lb.hidden { display:none; }
+    #lb img { max-width:92vw; max-height:88vh; border-radius:10px; }
+    #lb-close { position:absolute; top:16px; right:22px; font-size:36px; color:#fff; cursor:pointer; }
+
+    /* Shop / products */
+    .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+    .product { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:10px; padding:14px; }
+    .product img { width:100%; height:180px; object-fit:cover; border-radius:8px; }
+    .product .price { color:#f0a500; font-weight:700; }
+    .product .btn {
+      display: inline-block;
+      margin-top: 8px;
+      background: #7c3aed;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .product .btn:hover { background: #5b21b6; transform: scale(1.05); }
+    .product .btn:active { transform: scale(0.97); }
+    .fineprint { opacity:.7; font-size:.9rem; margin-top:8px; }
+
+    /* Floating book button */
+    .fab-book{position:fixed;right:16px;bottom:16px;z-index:1000}
+    .fab-book a{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.1rem;border-radius:9999px;background:#7c3aed;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,.35)}
+    .fab-book a:hover{opacity:.9}
+    .fab-book svg{width:20px;height:20px}
+    @media (min-width:768px){.fab-book{bottom:24px;right:24px}}
+
+    /* Sticky mobile bottom bar */
+    .mobile-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000; background:#1a1b1f; border-top:1px solid rgba(255,255,255,.12); padding: max(env(safe-area-inset-bottom),12px) 12px 12px; box-shadow: 0 -8px 20px rgba(0,0,0,.35); }
+  </style>
+  <!-- SEO: canonical, social tags -->
+  <link rel="canonical" href="https://lonewolfwraps.vercel.app/" />
+  <link rel="icon" href="/logo.png" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="theme-color" content="#7c3aed"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Lone Wolf Wraps — Premium Vehicle Wraps in Columbia SC" />
+  <meta property="og:description" content="Precision vinyl & PPF installs in the Columbia, SC area. Full and partial wraps, chrome delete, and custom graphics. Book your wrap." />
+  <meta property="og:url" content="https://lonewolfwraps.vercel.app/" />
+  <meta property="og:image" content="https://lonewolfwraps.vercel.app/logo.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lone Wolf Wraps — Premium Vehicle Wraps in Columbia SC" />
+  <meta name="twitter:description" content="Precision vinyl & PPF installs in the Columbia, SC area. Full and partial wraps, chrome delete, and custom graphics." />
+  <meta name="twitter:image" content="https://lonewolfwraps.vercel.app/logo.png" />
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AutomotiveBusiness",
+        "@id": "https://lonewolfwraps.vercel.app/#business",
+        "name": "Lone Wolf Wraps",
+        "image": "https://lonewolfwraps.vercel.app/logo.png",
+        "logo": "https://lonewolfwraps.vercel.app/logo.png",
+        "url": "https://lonewolfwraps.vercel.app/",
+        "telephone": "+1-803-873-4617",
+        "email": "mark.helgeson@yahoo.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4 Dupre Court",
+          "addressLocality": "Irmo",
+          "addressRegion": "SC",
+          "postalCode": "29063",
+          "addressCountry": "US"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 34.085, "longitude": -81.183 },
+        "areaServed": ["Irmo","Columbia","Lexington","Chapin","West Columbia","Cayce"],
+        "priceRange": "$$",
+        "sameAs": [
+          "https://www.instagram.com/lonewolfwraps",
+          "https://www.tiktok.com/@lonewolfwraps"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://lonewolfwraps.vercel.app/#website",
+        "url": "https://lonewolfwraps.vercel.app/",
+        "name": "Lone Wolf Wraps",
+        "potentialAction": {"@type": "SearchAction","target": "https://lonewolfwraps.vercel.app/?q={search_term_string}","query-input": "required name=search_term_string"}
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+</head>
+<body class="bg-charcoal text-white">
+  <!-- Header with logo and quick actions -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-gunmetal/80 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3">
+        <img id="logo" src="/logo.png" alt="Lone Wolf Wraps logo" class="h-9 w-auto rounded-md border border-white/10 bg-white/5 p-1" />
+        <span class="font-bold tracking-wide">Lone Wolf Wraps</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Primary">
+        <a href="#services" class="hover:text-silver">Services</a>
+        <a href="#gallery" class="hover:text-silver">Gallery</a>
+        <a href="/order.html" class="hover:text-silver">Shop</a>
+        <a href="#beat" class="hover:text-silver">Beat a Quote</a>
+        <a href="#process" class="hover:text-silver">Process</a>
+        <a href="#book" class="hover:text-silver">Book</a>
+        <a href="#contact" class="hover:text-silver">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="tel:+18038734617" class="text-sm underline hidden sm:inline" aria-label="Call Lone Wolf Wraps">(803) 873‑4617</a>
+        <a href="#book" class="px-3 py-1.5 rounded-lg bg-accent hover:opacity-90 transition">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+  ... (rest of page not needed for patch replacement here) ...
+</body>
+</html>
