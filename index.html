@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lone Wolf Wraps — Premium Vehicle Wraps</title>
+  <meta name="description" content="Precision vinyl & PPF installs. Full and partial wraps, chrome delete, and custom graphics. Book your wrap in minutes." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // FIX: Tailwind config had duplicate/stray braces. Cleaned/valid JS below.
+    tailwind.config = {
+      safelist: ['opacity-100','translate-y-0','border-accent/40','bg-gunmetal/70'],
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#111216',
+            gunmetal: '#1a1b1f',
+            silver: '#c0c0c0',
+            accent: '#7c3aed',
+            olive: '#3D4A3A',
+            tan: '#C2A873'
+          },
+          boxShadow: {
+            soft: '0 8px 30px rgba(0,0,0,0.25)'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    :focus-visible { outline: 2px solid #7c3aed; outline-offset: 2px; }
+    .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0); background-size: 24px 24px; }
+    /* Gallery (lightbox) */
+    #gallery h2 { color:#f0a500; margin-bottom:1rem; }
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .gallery-grid img {  width:100%; height:220px; object-fit:cover; border-radius:8px; transition:transform .2s;  }
+    .gallery-grid a{ position:relative; }
+    .tile-label{ position:absolute; left:8px; bottom:8px; background:rgba(0,0,0,.55); backdrop-filter:blur(2px); padding:.25rem .5rem; border-radius:.5rem; font-size:.78rem; border:1px solid rgba(255,255,255,.18); }
+    .gallery-grid a:hover img { transform:scale(1.02); }
+    .lb { position:fixed; inset:0; background:rgba(0,0,0,.85); display:flex; align-items:center; justify-content:center; z-index:1000; }
+    .lb.hidden { display:none; }
+    #lb img { max-width:92vw; max-height:88vh; border-radius:10px; }
+    #lb video { max-width:92vw; max-height:88vh; border-radius:10px; }
+    #lb-close { position:absolute; top:16px; right:22px; font-size:36px; color:#fff; cursor:pointer; }
+
+    /* Shop / products */
+    .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+    .product { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:10px; padding:14px; }
+    .product img { width:100%; height:180px; object-fit:cover; border-radius:8px; }
+    .product .price { color:#f0a500; font-weight:700; }
+    .product .btn {
+      display: inline-block;
+      margin-top: 8px;
+      background: #7c3aed;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .product .btn:hover { background: #5b21b6; transform: scale(1.05); }
+    .product .btn:active { transform: scale(0.97); }
+    .fineprint { opacity:.7; font-size:.9rem; margin-top:8px; }
+
+    /* Veteran-Owned badge */
+    .badge-vo{display:inline-flex;align-items:center;gap:.35rem;padding:.15rem .45rem;border-radius:.5rem;background:#2f3a2e;color:#d8c6a3;font-size:.70rem;font-weight:700;letter-spacing:.02em;border:1px solid rgba(255,255,255,.12);line-height:1}
+    .badge-vo svg{width:14px;height:14px}
+
+    /* Floating book button */
+    .fab-book{position:fixed;right:16px;bottom:16px;z-index:1000}
+    .fab-book a{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.1rem;border-radius:9999px;background:#7c3aed;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,.35)}
+    .fab-book a:hover{opacity:.9}
+    .fab-book svg{width:20px;height:20px}
+    @media (min-width:768px){.fab-book{bottom:24px;right:24px}}
+
+    /* Sticky mobile bottom bar */
+    .mobile-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000; background:#1a1b1f; border-top:1px solid rgba(255,255,255,.12); padding: max(env(safe-area-inset-bottom),12px) 12px 12px; box-shadow: 0 -8px 20px rgba(0,0,0,.35); }
+  </style>
+  <!-- SEO: canonical, social tags -->
+  <link rel="canonical" href="https://lonewolfwraps.vercel.app/" />
+  <link rel="icon" href="/images/logo.png?v=1" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="theme-color" content="#7c3aed"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Lone Wolf Wraps — Premium Vehicle Wraps in Columbia SC" />
+  <meta property="og:description" content="Precision vinyl & PPF installs in the Columbia, SC area. Full and partial wraps, chrome delete, and custom graphics. Book your wrap." />
+  <meta property="og:url" content="https://lonewolfwraps.vercel.app/" />
+  <meta property="og:image" content="https://res.cloudinary.com/dpjmcyksg/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1754781623/ChatGPT_Image_Aug_9_2025_07_15_59_PM_ziodle.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lone Wolf Wraps — Premium Vehicle Wraps in Columbia SC" />
+  <meta name="twitter:description" content="Precision vinyl & PPF installs in the Columbia, SC area. Full and partial wraps, chrome delete, and custom graphics." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dpjmcyksg/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1754781623/ChatGPT_Image_Aug_9_2025_07_15_59_PM_ziodle.png" />
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AutomotiveBusiness",
+        "@id": "https://lonewolfwraps.vercel.app/#business",
+        "name": "Lone Wolf Wraps",
+        "image": "https://lonewolfwraps.vercel.app/images/logo.png",
+        "logo": "https://lonewolfwraps.vercel.app/images/logo.png",
+        "url": "https://lonewolfwraps.vercel.app/",
+        "telephone": "+1-803-873-4617",
+        "email": "mark.helgeson@yahoo.com",
+        "areaServed": ["Irmo","Columbia","Lexington","Chapin","West Columbia","Cayce"],
+        "priceRange": "$$",
+        "sameAs": [
+          "https://www.instagram.com/lonewolfwraps",
+          "https://www.tiktok.com/@lonewolfwraps"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://lonewolfwraps.vercel.app/#website",
+        "url": "https://lonewolfwraps.vercel.app/",
+        "name": "Lone Wolf Wraps",
+        "potentialAction": {"@type": "SearchAction","target": "https://lonewolfwraps.vercel.app/?q={search_term_string}","query-input": "required name=search_term_string"}
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <link rel="preconnect" href="https://calendly.com" crossorigin>
+  <link rel="preconnect" href="https://placehold.co" crossorigin>
+<link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+<noscript><style>.process-step{opacity:1 !important;transform:none !important}</style></noscript>
+</head>
+<body class="bg-charcoal text-white">
+  <!-- Header with logo and quick actions -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-gunmetal/80 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="#hero" class="flex items-center gap-3">
+          <img id="logo" class="h-8 w-auto md:h-8" src="/images/logo.png?v=1" width="140" height="40" alt="Lone Wolf Wraps logo" style="image-rendering:auto">
+          <span class="font-bold tracking-wide">Lone Wolf Wraps</span>
+        </a>
+        <span class="badge-vo hidden md:inline-flex" title="Veteran-Owned">Veteran‑Owned</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Primary">
+        <a href="#services" class="hover:text-silver">Choose Your Armor</a>
+        <a href="#gallery" class="hover:text-silver">Meet the Pack</a>
+        <a href="/order.html" class="hover:text-silver">Shop</a>
+        <a href="#beat" class="hover:text-silver">Beat a Quote</a><a href="#book" class="hover:text-silver">Book</a>
+        <a href="#contact" class="hover:text-silver">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="tel:+18038734617" class="hidden md:inline-flex px-3 py-1.5 rounded-lg border border-white/15 hover:border-white/30" aria-label="Call Lone Wolf Wraps">Call</a>
+        <a href="#book" class="px-3 py-1.5 rounded-lg bg-accent hover:opacity-90 transition">Join the Pack</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-gunmetal to-charcoal bg-grid"></div>
+  <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+        Alpha wolf or part of the pack—<span class="text-accent">your call.</span>
+      </h1>
+      <p class="mt-5 text-lg text-white/80">Precision vinyl & PPF installs in <span class="font-semibold">Columbia, SC</span> — based in Irmo. Full and partial wraps, chrome delete, custom graphics.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#book" class="px-5 py-3 rounded-xl bg-accent hover:opacity-90 transition shadow-soft font-semibold">Start Your Transformation</a>
+        <a href="#beat" class="px-5 py-3 rounded-xl border border-white/15 hover:border-white/30">Beat a Quote</a>
+      </div>
+      <div class="mt-6 text-sm text-white/60 flex items-center gap-2">
+        <span class="inline-flex h-2.5 w-2.5 rounded-full bg-green-500"></span> Mobile installs available by appointment.
+      </div>
+    </div>
+
+    <!-- Hero image using your original file -->
+    <img
+      src="https://res.cloudinary.com/dpjmcyksg/image/upload/f_auto,q_auto,w_1600/v1754781623/ChatGPT_Image_Aug_9_2025_07_15_59_PM_ziodle.png"
+      srcset="
+        https://res.cloudinary.com/dpjmcyksg/image/upload/f_auto,q_auto,w_800/v1754781623/ChatGPT_Image_Aug_9_2025_07_15_59_PM_ziodle.png 800w,
+        https://res.cloudinary.com/dpjmcyksg/image/upload/f_auto,q_auto,w_1200/v1754781623/ChatGPT_Image_Aug_9_2025_07_15_59_PM_ziodle.png 1200w,
+        https://res.cloudinary.com/dpjmcyksg/image/upload/f_auto,q_auto,w_1600/v1754781623/ChatGPT_Image_Aug_9_2025_07_15_59_PM_ziodle.png 1600w,
+        https://res.cloudinary.com/dpjmcyksg/image/upload/f_auto,q_auto,w_2000/v1754781623/ChatGPT_Image_Aug_9_2025_07_15_59_PM_ziodle.png 2000w"
+      sizes="(min-width: 768px) 50vw, 100vw"
+      alt="Camo wrap sedan in front of mural — Lone Wolf Wraps project"
+      class="w-full h-auto rounded-2xl border border-white/10 shadow-soft"
+      fetchpriority="high" decoding="async" width="1600" height="900"
+    />
+  </div>
+</section>
+
+  <!-- Trust row -->
+  <section id="trust" class="bg-gunmetal/60 border-t border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-white/80">
+      <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-olive"></span><strong>Veteran‑Owned</strong></div>
+      <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-olive"></span><strong>Direct vendor pricing</strong></div>
+      <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-olive"></span><strong>Fast turnaround</strong></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16 md:py-20 border-b border-white/10 bg-gunmetal/40">
+    <div class="max-w-5xl mx-auto px-4 grid gap-10 items-start">
+      <div>
+        <h2 class="text-3xl font-bold">Welcome to the Den</h2>
+        <p class="mt-4 text-white/80">Lone Wolf Wraps is the den for lone wolves and pack leaders across <strong>Columbia, SC</strong>. This is where rides get their custom <em>armor</em>—precision vinyl and PPF that looks premium, protects paint, and turns heads. Come in solo, roll out part of the pack.</p>
+        <ul class="mt-6 grid gap-3 text-white/80">
+          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-accent"></span><span>Premium films, tight seams, and clean edges—built to endure.</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-accent"></span><span>Local, appointment‑based shop in Irmo serving the Columbia metro.</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-accent"></span><span>Clear pricing and fast turnaround. Car Wraps Columbia SC you can trust.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="p-10">
+    <h2 class="text-2xl font-semibold mb-6">Choose Your Armor</h2>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- Full Vehicle Wraps -->
+      <div class="group rounded-xl border border-white/10 bg-gunmetal/60 p-5 hover:border-accent/50 hover:shadow-soft transition">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="inline-flex p-2 rounded-lg bg-accent/15">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5" stroke-width="1.8"><path d="M3 16v-2a4 4 0 0 1 4-4h7a4 4 0 0 1 3.6 2.4l1.1 2.6a2 2 0 0 1-1.8 2.8H6a3 3 0 0 1-3-3Z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+          </span>
+          <h3 class="font-semibold">Alpha Armor (Full Wraps)</h3>
+        </div>
+        <p class="text-sm text-white/70">Full color change or printed liveries. Panel‑by‑panel precision and factory‑like edge wraps.</p>
+      </div>
+
+      <!-- Partial Wraps -->
+      <div class="group rounded-xl border border-white/10 bg-gunmetal/60 p-5 hover:border-accent/50 hover:shadow-soft transition">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="inline-flex p-2 rounded-lg bg-accent/15">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M12 6v12"/></svg>
+          </span>
+          <h3 class="font-semibold">Stealth Upgrade (Partial Wraps)</h3>
+        </div>
+        <p class="text-sm text-white/70">Hoods, roofs, mirrors, stripes—surgical impact without the full commitment.</p>
+      </div>
+
+      <!-- Custom Graphics -->
+      <div class="group rounded-xl border border-white/10 bg-gunmetal/60 p-5 hover:border-accent/50 hover:shadow-soft transition">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="inline-flex p-2 rounded-lg bg-accent/15">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5" stroke-width="1.8"><path d="M3 20l7-7"/><path d="M14.5 5.5a2.1 2.1 0 0 1 3 3L10 16l-4 1 1-4 7.5-7.5Z"/></svg>
+          </span>
+          <h3 class="font-semibold">Battle Shield (PPF)</h3>
+        </div>
+        <p class="text-sm text-white/70">Paint Protection Film for front clips, hoods, and high‑wear zones. Invisible armor against chips.</p>
+      </div>
+
+      <!-- Color Changes -->
+      <div class="group rounded-xl border border-white/10 bg-gunmetal/60 p-5 hover:border-accent/50 hover:shadow-soft transition">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="inline-flex p-2 rounded-lg bg-accent/15">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5" stroke-width="1.8"><path d="M12 3l7 7-7 7-7-7 7-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          <h3 class="font-semibold">Shadow Mode (Chrome Delete)</h3>
+        </div>
+        <p class="text-sm text-white/70">Badges, trim, and brightwork blacked out for a clean, aggressive look.</p>
+      </div>
+    </div>
+
+    <!-- Inline CTA under services -->
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="#book" class="px-5 py-3 rounded-xl bg-accent hover:opacity-90 transition">Claim Your Spot in the Pack</a>
+      <a href="#gallery" class="px-5 py-3 rounded-xl border border-white/15 hover:border-white/30">Meet the Pack</a>
+    </div>
+  </section>
+
+  <!-- CTA after services (moved directly under Services) -->
+  <section id="perks" class="px-4 pb-2">
+    <div class="max-w-6xl mx-auto">
+      <div class="rounded-2xl border border-white/10 bg-gunmetal/60 p-6 md:p-8">
+        <h3 class="text-xl font-semibold mb-3">Pack Perks</h3>
+        <ul class="grid md:grid-cols-3 gap-3 text-white/80">
+          <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-olive"></span><span><em>Stand Out in Any Territory</em> — Unique films, colors, and textures you won’t find anywhere else.</span></li>
+          <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-olive"></span><span><em>Alpha Status</em> — Be the build everyone notices at the meet.</span></li>
+          <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-olive"></span><span><em>Protect Your Ride</em> — Wraps and PPF guard paint while looking premium.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta-services" class="px-4 pb-2">
+    <div class="max-w-6xl mx-auto">
+      <div class="rounded-2xl border border-white/10 bg-gunmetal/60 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <h3 class="text-xl font-semibold">Ready to stand out from the pack?</h3>
+          <p class="text-white/70">Quick consults, clear pricing, pro install.</p>
+        </div>
+        <div class="flex gap-3">
+          <a href="#book" class="px-5 py-3 rounded-xl bg-accent hover:opacity-90 transition">Start Your Transformation</a>
+          <a href="#beat" class="px-5 py-3 rounded-xl border border-white/15 hover:border-white/30">Beat a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="p-10 border-t border-white/10 bg-gunmetal/40">
+    <h2 class="text-2xl font-semibold mb-1">How it works</h2>
+    <p class="text-white/60 text-sm mb-6">Simple steps from consult to install.</p>
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="process-step rounded-xl border border-white/10 p-5 shadow-soft transition duration-700 hover:border-accent/50">
+        <h3 class="font-semibold">1) Consult</h3>
+        <p class="text-white/70 text-sm">Quick call or Calendly. Share your vehicle + goal.</p>
+      </div>
+      <div class="process-step rounded-xl border border-white/10 p-5 shadow-soft transition duration-700 hover:border-accent/50">
+        <h3 class="font-semibold">2) Choose wrap</h3>
+        <p class="text-white/70 text-sm">We recommend colors/finishes and confirm pricing.</p>
+      </div>
+      <div class="process-step rounded-xl border border-white/10 p-5 shadow-soft transition duration-700 hover:border-accent/50">
+        <h3 class="font-semibold">3) Install</h3>
+        <p class="text-white/70 text-sm">Drop off, we wrap. Stand out from the pack.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking (moved under Process) -->
+  <section id="book" class="p-10">
+    <h2 class="text-2xl font-semibold mb-3">Schedule your wrap consultation</h2>
+    <div class="scheduler">
+      <div class="calendly-inline-widget" data-url="https://calendly.com/felixcolahelllolz/30min?hide_gdpr_banner=1" style="min-width:320px;height:720px;"></div>
+    </div>
+    <p class="mt-2">Prefer a call? Text/call <a href="tel:+18038734617" class="underline">(803) 873‑4617</a>.</p>
+  </section>
+
+  <!-- Quote (moved under Booking) -->
+  <section id="quote" class="py-16 border-t border-white/10">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-semibold">Get a written quote</h2>
+        <p class="text-white/70">Prefer email over a call? Send us the basics and we’ll reply with a written estimate.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-gunmetal/60 p-6 shadow-soft">
+        <form id="quoteForm" action="https://formspree.io/f/mgvzreva" method="POST" class="grid md:grid-cols-2 gap-4" aria-describedby="quoteStatus">
+          <input type="hidden" name="form_name" value="Written Quote Request">
+          <label class="sr-only" for="q-name">Your name</label>
+          <input id="q-name" class="bg-gunmetal border border-white/10 rounded p-3" name="name" placeholder="Your name" required>
+          <label class="sr-only" for="q-email">Email</label>
+          <input id="q-email" class="bg-gunmetal border border-white/10 rounded p-3" name="email" type="email" placeholder="Email" required>
+          <label class="sr-only" for="q-phone">Phone</label>
+          <input id="q-phone" class="bg-gunmetal border border-white/10 rounded p-3" name="phone" type="tel" placeholder="Phone" required>
+          <label class="sr-only" for="q-vehicle">Vehicle</label>
+          <input id="q-vehicle" class="bg-gunmetal border border-white/10 rounded p-3" name="vehicle" placeholder="Vehicle (Year • Make • Model)">
+          <label class="sr-only" for="q-film">Film / Color</label>
+          <input id="q-film" class="bg-gunmetal border border-white/10 rounded p-3" name="film" placeholder="Film / Color (e.g., Inozetek Midnight Purple)">
+          <label class="sr-only" for="q-notes">Notes</label>
+          <textarea id="q-notes" class="bg-gunmetal border border-white/10 rounded p-3 md:col-span-2" name="notes" placeholder="Shipping city/zip or install only?"></textarea>
+          <input type="text" name="_gotcha" class="hidden" aria-hidden="true">
+          <div class="md:col-span-2 flex justify-center">
+            <button id="quoteBtn" class="px-5 py-3 bg-accent rounded-xl hover:opacity-90 shadow-soft">Get my quote</button>
+          </div>
+        </form>
+        <div id="quoteStatus" class="text-sm text-center mt-3" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beat a Vendor Quote -->
+  <section id="beat" class="py-16 border-t border-white/10 bg-gunmetal/40">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-6">
+        <h2 class="text-3xl font-semibold">Beat a vendor quote</h2>
+        <p class="text-white/70 mt-2">Got a film or wrap quote for $700? We’ll try to beat it to $600–$500 on the same film when possible. Send the quote or vendor SKU and we’ll reply fast.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-gunmetal/60 p-6 shadow-soft">
+        <form id="beatForm" action="https://formspree.io/f/mgvzreva" method="POST" class="grid md:grid-cols-2 gap-4" aria-describedby="beatStatus">
+          <input type="hidden" name="form_name" value="Beat a Quote">
+
+          <label class="sr-only" for="b-name">Your name</label>
+          <input id="b-name" class="bg-gunmetal border border-white/10 rounded p-3" name="name" placeholder="Your name" required>
+
+          <label class="sr-only" for="b-email">Email</label>
+          <input id="b-email" class="bg-gunmetal border border-white/10 rounded p-3" name="email" type="email" placeholder="Email" required>
+
+          <label class="sr-only" for="b-phone">Phone</label>
+          <input id="b-phone" class="bg-gunmetal border border-white/10 rounded p-3" name="phone" type="tel" placeholder="Phone (optional)">
+
+          <label class="sr-only" for="b-vehicle">Vehicle</label>
+          <input id="b-vehicle" class="bg-gunmetal border border-white/10 rounded p-3" name="vehicle" placeholder="Vehicle (Year • Make • Model)">
+
+          <label class="sr-only" for="b-sku">Vendor film / SKU</label>
+          <input id="b-sku" class="bg-gunmetal border border-white/10 rounded p-3 md:col-span-2" name="vendor_sku" placeholder="Vendor film / SKU (optional)">
+
+          <label class="sr-only" for="b-details">Details</label>
+          <textarea id="b-details" class="bg-gunmetal border border-white/10 rounded p-3 md:col-span-2" name="details" placeholder="Paste quote link or details"></textarea>
+
+          <input type="text" name="_gotcha" class="hidden" aria-hidden="true">
+
+          <div class="md:col-span-2 flex justify-center">
+            <button id="beatBtn" class="px-5 py-3 bg-accent rounded-xl hover:opacity-90 shadow-soft">Submit</button>
+          </div>
+        </form>
+        <div id="beatStatus" class="text-sm text-center mt-3" aria-live="polite"></div>
+      </div>
+      <p class="fineprint text-center mt-4">We’ll match film brand/finish when available. Final pricing depends on condition, panels, and install complexity.</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="p-10">
+    <h2 class="text-2xl font-semibold mb-3">Meet the Pack</h2>
+    <div id="galleryGrid" class="gallery-grid"></div>
+    <h3 id="videosHeading" class="text-xl font-semibold mt-8 mb-3 hidden">Videos</h3>
+    <div id="videoGrid" class="gallery-grid hidden"></div>
+    <div id="lb" class="lb hidden" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button id="lb-close" aria-label="Close image">×</button>
+      <video id="lb-video" controls playsinline preload="metadata" class="hidden"></video>
+      <img id="lb-img" alt="">
+    </div>
+  </section>
+
+  <!-- Shop / Featured -->
+  <section id="shop" class="p-10">
+    <h2 class="text-2xl font-semibold mb-3">Featured Films & Services</h2>
+    <div class="products">
+      <article class="product" data-sku="FILM-INOZETEK-MP-5x25">
+        <img width="800" height="600" src="/images/IMG_2159.JPG?v=6" alt="Gloss purple sports car — film inspiration (customer project)" loading="lazy" data-fallback="https://placehold.co/800x600?text=Film" />
+        <h3 class="mt-3 font-semibold">Inozetek Midnight Purple — 5ft × 25ft</h3>
+        <p class="desc text-gray-300">Premium gloss film roll. Perfect for hoods, roofs, and accents.</p>
+        <p class="text-xs text-white/50 mt-1">Ships in 5–10 business days.</p>
+        <a class="btn" href="mailto:mark.helgeson@yahoo.com?subject=Buy%20Now%20-%20Inozetek%20Midnight%20Purple%205ftx25ft&body=Name:%0D%0AShipping%20Address:%0D%0AQuantity:%0D%0APhone:%0D%0A" rel="noopener">Buy now</a>
+      </article>
+      <article class="product" data-sku="SERVICE-MATTE-BLACK-WRAP">
+        <img width="800" height="600" src="/images/IMG_2168.JPG?v=6" alt="Matte black look — material + install example" loading="lazy" data-fallback="https://placehold.co/800x600?text=Wrap" />
+        <h3 class="mt-3 font-semibold">Matte Black Wrap — Material + Install</h3>
+        <p class="desc text-gray-300">Classic stealth look. Material + pro install billed on estimate.</p>
+        <p class="text-xs text-white/50 mt-1">Install scheduled after deposit. Typical lead 5–10 days.</p>
+        <a class="btn" href="mailto:mark.helgeson@yahoo.com?subject=Buy%20Now%20-%20Matte%20Black%20Wrap%20(Material%20%2B%20Install)&body=Name:%0D%0AVehicle%20(Year%2C%20Make%2C%20Model):%0D%0APanels%20or%20Full%20Wrap:%0D%0APreferred%20Date:%0D%0APhone:%0D%0A" rel="noopener">Buy now</a>
+      </article>
+    </div>
+    <p class="fineprint">Examples based on recent jobs; availability & pricing subject to confirmation.</p>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-16 border-t border-white/10 bg-gunmetal/40">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-semibold mb-8 text-center">Happy owners</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <figure class="rounded-2xl border border-white/10 bg-gunmetal/60 p-6 shadow-soft hover:border-accent/40 transition">
+          <div class="flex items-center gap-2 text-tan mb-2">
+            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.401 8.168L12 18.896l-7.335 3.868 1.401-8.168L.132 9.21l8.2-1.192z"/></svg>
+            <span>5.0</span>
+          </div>
+          <blockquote class="text-white/80">“Flawless wrap and fast. Looks better than paint.”</blockquote>
+          <figcaption class="mt-3 text-sm text-white/60">— Alex R., Model 3</figcaption>
+        </figure>
+        <figure class="rounded-2xl border border-white/10 bg-gunmetal/60 p-6 shadow-soft hover:border-accent/40 transition">
+          <div class="flex items-center gap-2 text-tan mb-2">
+            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.401 8.168L12 18.896l-7.335 3.868 1.401-8.168L.132 9.21l8.2-1.192z"/></svg>
+            <span>5.0</span>
+          </div>
+          <blockquote class="text-white/80">“Beat my vendor quote by $150 and installed perfectly.”</blockquote>
+          <figcaption class="mt-3 text-sm text-white/60">— Jasmine M., WRX</figcaption>
+        </figure>
+        <figure class="rounded-2xl border border-white/10 bg-gunmetal/60 p-6 shadow-soft hover:border-accent/40 transition">
+          <div class="flex items-center gap-2 text-tan mb-2">
+            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.401 8.168L12 18.896l-7.335 3.868 1.401-8.168L.132 9.21l8.2-1.192z"/></svg>
+            <span>5.0</span>
+          </div>
+          <blockquote class="text-white/80">“Great communication. Clean seams and edges.”</blockquote>
+          <figcaption class="mt-3 text-sm text-white/60">— Chris D., Mustang</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA above footer -->
+  <section id="cta-final" class="px-4 py-8">
+    <div class="max-w-6xl mx-auto rounded-2xl border border-white/10 bg-gunmetal/60 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div>
+        <h3 class="text-xl font-semibold">Let’s make your car the alpha.</h3>
+        <p class="text-white/70">Call now or grab a slot on the calendar.</p>
+      </div>
+      <div class="flex gap-3">
+        <a href="tel:+18038734617" class="px-5 py-3 rounded-xl border border-white/15 hover:border-white/30">Call</a>
+        <a href="#book" class="px-5 py-3 rounded-xl bg-accent hover:opacity-90 transition">Join the Pack</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-semibold mb-6 text-center">Contact</h2>
+      <div class="rounded-2xl border border-white/10 bg-gunmetal/60 p-6 shadow-soft">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-semibold">Phone</h3>
+            <p class="text-white/70">(803) 873‑4617</p>
+            <a href="tel:+18038734617" class="mt-2 inline-block px-4 py-2 rounded-lg border border-white/15 hover:border-white/30">Call now</a>
+          </div>
+          <div>
+            <h3 class="font-semibold">Email</h3>
+            <p class="text-white/70">mark.helgeson@yahoo.com</p>
+            <a href="mailto:mark.helgeson@yahoo.com" class="mt-2 inline-block px-4 py-2 rounded-lg border border-white/15 hover:border-white/30">Email us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-white/60 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p>© <span id="year"></span> Lone Wolf Wraps. All rights reserved. Join the community: <strong>#WolfPackRides</strong> • <strong>#AlphaBuilds</strong> • <strong>#LoneWolfCustoms</strong></p>
+      <div class="flex items-center gap-4">
+        <a href="https://www.instagram.com/lonewolfwraps" class="underline" aria-label="Instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@lonewolfwraps" class="underline" aria-label="TikTok">TikTok</a>
+        <a href="mailto:mark.helgeson@yahoo.com" class="underline" aria-label="Email">Email</a>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile bottom bar -->
+  <div class="sm:hidden mobile-cta">
+    <div class="max-w-6xl mx-auto px-2 flex gap-2">
+      <a href="tel:+18038734617" class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 py-3">Call</a>
+      <a href="#book" class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-accent py-3">Join the Pack</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    // Lightbox (images + videos)
+    const lb = document.getElementById('lb');
+    const lbImg = document.getElementById('lb-img');
+    const lbVid = document.getElementById('lb-video');
+    const lbClose = document.getElementById('lb-close');
+
+    document.querySelectorAll('.lightbox').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const isVideo = a.dataset.type === 'video';
+        // reset
+        if (lbVid) { lbVid.pause?.(); lbVid.classList.add('hidden'); lbVid.removeAttribute('src'); lbVid.load?.(); }
+        if (lbImg) { lbImg.classList.add('hidden'); lbImg.removeAttribute('src'); }
+
+        if (isVideo && lbVid) {
+          lbVid.poster = a.dataset.poster || '';
+          lbVid.src = a.getAttribute('href');
+          lbVid.classList.remove('hidden');
+          lb.classList.remove('hidden');
+          try { lbVid.play(); } catch(_) {}
+        } else if (lbImg) {
+          const thumb = a.querySelector('img');
+          lbImg.alt = thumb?.alt || '';
+          lbImg.src = a.getAttribute('href');
+          lbImg.classList.remove('hidden');
+          lb.classList.remove('hidden');
+        }
+      });
+    });
+
+    function closeLb(){
+      lb.classList.add('hidden');
+      if (lbVid) { lbVid.pause?.(); lbVid.removeAttribute('src'); lbVid.load?.(); }
+      if (lbImg) { lbImg.removeAttribute('src'); }
+    }
+
+    lbClose && (lbClose.onclick = closeLb);
+    lb && (lb.onclick = e => { if (e.target === lb) closeLb(); });
+  </script>
+  <script>
+    // ==== Cloudinary Path B: Build gallery & videos ====
+    // Shows your priority images first, then everything tagged `gallery` in Cloudinary.
+    // To include ALL assets from your gallery folder without editing code:
+    //   1) In Cloudinary Media Library, select images in lonewolfwraps/gallery and add tag: gallery
+    //   2) (Optional) For videos in lonewolfwraps/videos, also tag: gallery
+    (async function(){
+      const CLOUD = 'dpjmcyksg';
+      const FOLDER_IMG_PREFIX = 'lonewolfwraps/gallery/';
+      const FOLDER_VID_PREFIX = 'lonewolfwraps/videos/';
+
+      // Helper to insert Cloudinary transformations after /upload/
+      const withTrans = (url, trans) => url.replace('/upload/', `/upload/${trans}/`);
+
+      // 1) PRIORITY items you gave (these will appear first)
+      const PRIORITY = [
+        { base: 'https://res.cloudinary.com/dpjmcyksg/image/upload/v1754781213/Tesla_M3_Side_image_After_GALLERY_vdhtrk.jpg', alt: 'Tesla Model 3 — side profile after wrap', name: 'Hunter', style: 'Stealth matte black' },
+        { base: 'https://res.cloudinary.com/dpjmcyksg/image/upload/v1754781211/Tesla_M3_After_Front_Gallery_gipx8c.jpg', alt: 'Tesla Model 3 — front angle after wrap', name: 'Alpha', style: 'Gloss red with blackout trim' },
+        { base: 'https://res.cloudinary.com/dpjmcyksg/image/upload/v1754781211/Side_M3_After_Gallery_gcmgmf.jpg', alt: 'Tesla Model 3 — side angle after wrap', name: 'Rogue', style: 'Color‑shift hue' },
+        { base: 'https://res.cloudinary.com/dpjmcyksg/image/upload/v1754781211/Tesla_M3_Front_Aerial_After_Gallery_xrcdsz.jpg', alt: 'Tesla Model 3 — front aerial after wrap', name: 'Scout', style: 'Satin finish' },
+        { base: 'https://res.cloudinary.com/dpjmcyksg/image/upload/v1754781201/IMG_2177_ml8e3c.jpg', alt: 'Wrap detail close‑up', name: 'Talon', style: 'Close‑up detail' }
+      ];
+
+      // 2) Auto‑discover: any images tagged `gallery` (no keys required)
+      async function fetchTaggedImages(){
+        try {
+          const res = await fetch(`https://res.cloudinary.com/${CLOUD}/image/list/gallery.json`, { cache: 'no-store' });
+          if (!res.ok) return [];
+          const data = await res.json();
+          if (!data.resources) return [];
+          return data.resources
+            .filter(r => (r.public_id || '').startsWith(FOLDER_IMG_PREFIX))
+            .map(r => ({
+              id: r.public_id,
+              version: r.version,
+              format: r.format,
+              alt: r.public_id.split('/').pop().replace(/[._-]+/g,' ').trim()
+            }));
+        } catch(e){ return []; }
+      }
+
+      // 3) Auto‑discover: any videos tagged `gallery`
+      async function fetchTaggedVideos(){
+        try {
+          const res = await fetch(`https://res.cloudinary.com/${CLOUD}/video/list/gallery.json`, { cache: 'no-store' });
+          if (!res.ok) return [];
+          const data = await res.json();
+          if (!data.resources) return [];
+          return data.resources
+            .filter(r => (r.public_id || '').startsWith(FOLDER_VID_PREFIX))
+            .map(r => ({
+              href: `https://res.cloudinary.com/${CLOUD}/video/upload/f_auto,q_auto,w_1600/v${r.version}/${r.public_id}.${r.format}`,
+              poster: `https://res.cloudinary.com/${CLOUD}/video/upload/so_1/v${r.version}/${r.public_id}.jpg`,
+              alt: (r.public_id.split('/').pop().replace(/[._-]+/g,' ') + ' (video)').trim()
+            }));
+        } catch(e){ return []; }
+      }
+
+      // 4) Build the image grid (priority first, then auto‑discovered, deduped)
+      const grid = document.getElementById('galleryGrid');
+      if (grid) {
+        const frag = document.createDocumentFragment();
+        const seen = new Set();
+
+        function makeThumb(base, alt){
+          const a = document.createElement('a');
+          a.href = withTrans(base, 'f_auto,q_auto,w_2000');
+          a.className = 'lightbox';
+          const img = document.createElement('img');
+          img.width = 800; img.height = 600; img.loading = 'lazy';
+          img.alt = alt || 'Gallery photo';
+          img.src = withTrans(base, 'f_auto,q_auto,w_800');
+          img.setAttribute('data-fallback','https://placehold.co/800x600?text=Wrap+photo');
+          a.appendChild(img);
+          // Captions removed as requested
+          attachLightbox(a);
+          return a;
+        }
+
+        function attachLightbox(a){
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            const lb = document.getElementById('lb');
+            const lbImg = document.getElementById('lb-img');
+            const lbVid = document.getElementById('lb-video');
+            const isVideo = a.dataset.type === 'video';
+            if (lbVid) { lbVid.pause?.(); lbVid.classList.add('hidden'); lbVid.removeAttribute('src'); lbVid.load?.(); }
+            if (lbImg) { lbImg.classList.add('hidden'); lbImg.removeAttribute('src'); }
+            if (!isVideo && lbImg) {
+              const thumb = a.querySelector('img');
+              lbImg.alt = thumb?.alt || '';
+              lbImg.src = a.getAttribute('href');
+              lbImg.classList.remove('hidden');
+              lb.classList.remove('hidden');
+            }
+          }, { once: false });
+        }
+
+        // Add priority first
+        PRIORITY.forEach(({base, alt, name, style}) => {
+          const key = base;
+          if (seen.has(key)) return;
+          seen.add(key);
+          frag.appendChild(makeThumb(base, alt));
+        });
+
+        // Then try to load the rest from tag list
+        const discovered = await fetchTaggedImages();
+        discovered.forEach(r => {
+          const base = `https://res.cloudinary.com/${CLOUD}/image/upload/v${r.version}/${r.public_id}.${r.format}`;
+          if (seen.has(base)) return;
+          seen.add(base);
+          frag.appendChild(makeThumb(base, r.alt));
+        });
+
+        // Commit to DOM
+        grid.innerHTML = '';
+        grid.appendChild(frag);
+      }
+
+      // 5) Build the video section: explicit item(s) + any tagged videos
+      const vGrid = document.getElementById('videoGrid');
+      const vHead = document.getElementById('videosHeading');
+      if (vGrid) {
+        const frag = document.createDocumentFragment();
+        const items = [
+          // Your explicit video (kept):
+          { href: 'https://res.cloudinary.com/dpjmcyksg/video/upload/f_auto,q_auto,w_1600/v1754781367/IMG_6290_adiknj.mov', poster: 'https://res.cloudinary.com/dpjmcyksg/video/upload/so_1/v1754781367/IMG_6290_adiknj.jpg', alt: 'Wrap timelapse (video)' }
+        ];
+        // Also include any videos you tag with `gallery`
+        const tagged = await fetchTaggedVideos();
+        tagged.forEach(v => items.push(v));
+
+        items.forEach(({href, poster, alt}) => {
+          const a = document.createElement('a');
+          a.href = href;
+          a.className = 'lightbox';
+          a.dataset.type = 'video';
+          if (poster) a.dataset.poster = poster;
+          const img = document.createElement('img');
+          img.width = 800; img.height = 600; img.loading = 'lazy';
+          img.alt = alt || 'Video';
+          img.src = poster || 'https://placehold.co/800x600?text=Video';
+          a.appendChild(img);
+          // video handler attaches here
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            const lb = document.getElementById('lb');
+            const lbVid = document.getElementById('lb-video');
+            const lbImg = document.getElementById('lb-img');
+            if (lbVid) { lbVid.pause?.(); lbVid.classList.add('hidden'); lbVid.removeAttribute('src'); lbVid.load?.(); }
+            if (lbImg) { lbImg.classList.add('hidden'); lbImg.removeAttribute('src'); }
+            if (lbVid) {
+              lbVid.poster = a.dataset.poster || '';
+              lbVid.src = a.getAttribute('href');
+              lbVid.classList.remove('hidden');
+              lb.classList.remove('hidden');
+              try { lbVid.play(); } catch(_) {}
+            }
+          }, { once: false });
+          frag.appendChild(a);
+        });
+
+        if (items.length) {
+          vGrid.innerHTML = '';
+          vGrid.appendChild(frag);
+          vGrid.classList.remove('hidden');
+          vHead && vHead.classList.remove('hidden');
+        }
+      }
+    })();
+  </script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <!-- Floating Book button -->
+  <div class="fab-book">
+    <a href="#book" id="fabBook" aria-label="Book a consultation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Book</span>
+    </a>
+  </div>
+  <script>
+    // Floating Book button opens Calendly popup, falls back to #book
+    const fab = document.getElementById('fabBook');
+    if (fab) {
+      fab.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (window.Calendly && Calendly.initPopupWidget) {
+          Calendly.initPopupWidget({ url: 'https://calendly.com/felixcolahelllolz/30min?hide_gdpr_banner=1' });
+        } else {
+          location.hash = '#book';
+        }
+      });
+    }
+
+    // Cloudinary fetch integration (no secrets needed)
+    (function(){
+      const CLOUD = 'dpjmcyksg'; // <-- replace with your Cloudinary cloud name (not secret)
+      if (!CLOUD) return;
+      const ORIGIN = location.origin;
+      const build = (abs, w) => `https://res.cloudinary.com/${CLOUD}/image/fetch/f_auto,q_auto,w_${w}/${encodeURIComponent(abs)}`;
+      document.querySelectorAll('img').forEach(img => {
+        try{
+          const src = img.getAttribute('src');
+          if (!src) return;
+          if (!(src.startsWith('/images/') || src.startsWith('images/'))) return; // only rewrite local images
+          const abs = new URL(src.replace(/\?.*$/, ''), ORIGIN).href;
+          const isHero = !!img.closest('#hero');
+          img.decoding = 'async';
+          img.loading = isHero ? 'eager' : 'lazy';
+          if (isHero) img.setAttribute('fetchpriority','high');
+          img.src = build(abs, isHero ? 1600 : 1200);
+          img.srcset = `${build(abs,800)} 800w, ${build(abs,1200)} 1200w, ${build(abs,1600)} 1600w, ${build(abs,2000)} 2000w`;
+          img.sizes = isHero ? '(min-width: 768px) 50vw, 100vw' : '(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 100vw';
+        }catch(e){}
+      });
+    })();
+
+    // Image fallbacks + robust retries (cache-bust + case-swap)
+    // 1) One-time cache-bust for images served from /images/ (avoids sticky 404 caches)
+    document.querySelectorAll('img[src^="images/"], img[src^="/images/"]').forEach(img => {
+      try {
+        const u = new URL(img.getAttribute('src'), location.href);
+        if (!u.searchParams.has('v')) {
+          u.searchParams.set('v','5'); // bump if you need to force-refresh again
+          img.setAttribute('src', u.pathname + '?' + u.searchParams.toString());
+        }
+      } catch (e) {}
+    });
+
+    // 2) Fallbacks with retries
+    document.querySelectorAll('img').forEach(pic => {
+      if (!pic.loading) pic.loading = 'lazy';
+      let triedBust = false;
+      let triedCaseSwap = false;
+      pic.addEventListener('error', () => {
+        const current = pic.currentSrc || pic.src;
+        try {
+          const url = new URL(current, location.href);
+          const isLocal = url.pathname.startsWith('/images/');
+          // Retry A: add cache-buster if local image and we haven't tried yet
+          if (isLocal && !triedBust) {
+            url.searchParams.set('v', (Number(url.searchParams.get('v'))||2) + 1);
+            pic.src = url.pathname + '?' + url.searchParams.toString();
+            triedBust = true;
+            return;
+          }
+          // Retry B: swap JPG/jpg case once (helps when filename case differs)
+          if (!triedCaseSwap && /\.(jpg|JPG)$/.test(url.pathname)) {
+            url.pathname = url.pathname.endsWith('.JPG')
+              ? url.pathname.replace(/\.JPG$/, '.jpg')
+              : url.pathname.replace(/\.jpg$/, '.JPG');
+            pic.src = url.pathname + (url.search || '');
+            triedCaseSwap = true;
+            return;
+          }
+        } catch(e) {}
+        // Final fallback: neutral placeholder
+        const alt = encodeURIComponent(pic.alt || 'Image');
+        pic.src = pic.dataset.fallback || `https://placehold.co/800x600?text=${alt}`;
+        pic.removeAttribute('srcset');
+      }, { once: false });
+    });
+    // Ensure logo never shows broken
+    const logo = document.getElementById('logo');
+    if (logo) {
+      logo.dataset.fallback = 'https://placehold.co/180x60?text=LW';
+      logo.addEventListener('error', () => { logo.src = logo.dataset.fallback; }, { once: true });
+    }
+
+    // Generic AJAX form handler (Formspree)
+    async function wireForm(formId, btnId, statusId){
+      const form = document.getElementById(formId);
+      if(!form) return;
+      const btn = document.getElementById(btnId);
+      const status = document.getElementById(statusId);
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.textContent = '';
+        if (btn) btn.setAttribute('disabled','true');
+        const data = new FormData(form);
+        try{
+          const r = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+          if(r.ok){
+            form.reset();
+            const el = document.createElement('div');
+            el.className = 'mt-2 rounded-lg border border-green-600/50 bg-green-500/10 p-2 text-green-300';
+            el.textContent = 'Thanks! We got your request and will reply shortly.';
+            status.replaceChildren(el);
+          }else{
+            const el = document.createElement('div');
+            el.className = 'mt-2 rounded-lg border border-red-600/50 bg-red-500/10 p-2 text-red-300';
+            el.textContent = 'Hmm, something went wrong. Try again in a moment or call (803) 873-4617.';
+            status.replaceChildren(el);
+          }
+        }catch(err){
+          const el = document.createElement('div');
+          el.className = 'mt-2 rounded-lg border border-red-600/50 bg-red-500/10 p-2 text-red-300';
+          el.textContent = 'Network error. Please check your connection and try again.';
+          status.replaceChildren(el);
+        }finally{
+          if (btn) btn.removeAttribute('disabled');
+        }
+      });
+    }
+    wireForm('beatForm','beatBtn','beatStatus');
+    wireForm('quoteForm','quoteBtn','quoteStatus');
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Why can you beat vendor prices?","acceptedAnswer":{"@type":"Answer","text":"Lean shop, direct vendor pricing, and efficient installs—so you pay less and we still earn fairly."}},
+        {"@type":"Question","name":"Wrap vs paint?","acceptedAnswer":{"@type":"Answer","text":"Wraps protect OEM paint, are reversible, and cost less than quality respray—plus endless finishes."}},
+        {"@type":"Question","name":"How long does a full wrap take?","acceptedAnswer":{"@type":"Answer","text":"Typically 2–5 days depending on prep, panels, and film choice."}},
+        {"@type":"Question","name":"What’s the warranty?","acceptedAnswer":{"@type":"Answer","text":"Material up to 1 year; install 6 months (varies by film and job scope)."}}
+      ]
+    }
+  </script>
+<script>
+  // Staggered reveal + accent highlight for Process steps
+  (function(){
+    const section = document.getElementById('process');
+    if (!section) return;
+    const steps = section.querySelectorAll('.process-step');
+    if (!steps.length) return;
+    const reveal = () => steps.forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.add('opacity-100','translate-y-0','border-accent/40','bg-gunmetal/70');
+      }, i * 120);
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { reveal(); io.disconnect(); }});
+    }, { threshold: 0.25 });
+    io.observe(section);
+  })();
+</script>
+</body>
+</html>
